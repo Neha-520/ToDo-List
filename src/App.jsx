@@ -1,15 +1,34 @@
-import React,{ useState } from 'react';
+import React,{ useState ,useEffect} from 'react';
 import './index.css';
 import AOS from "aos";
 import "aos/dist/aos.css";
 import List from './List';
+import { gsap } from 'gsap';
 AOS.init();
 
 const App = () =>{
 
     const [inputList,setInputList]= useState("");
     const [Items,setItems]=useState([]);
-
+  useEffect(()=>{
+   gsap.to(".first",1.5, { // selector text, Array, or object
+        top: "-100%",
+        delay: 0.5,
+        ease: "Expo.easeinOut",
+      });
+      
+      gsap.to(".second", 1.5,{ // selector text, Array, or object
+        top: "-100%",
+        delay: 0.7,
+        ease: "Expo.easeinOut",
+      });
+      
+      gsap.to(".third",1.5, { // selector text, Array, or object
+        top: "-100%",
+        delay: 0.9,
+        ease: "Expo.easeinOut",
+      });
+  },[])
     const itemEvent=(event)=>
     {
        setInputList(event.target.value);
@@ -56,7 +75,13 @@ else
     cssstyle.color='black';
 }
 return(<>
-<div className="x" data-aos="fade-right" data-aos-duration="500">
+<div className="wrapper">
+<div className="overlay first"></div>
+<div className="overlay second"></div>
+<div className="overlay third"></div>
+
+
+<div className="x" data-aos="fade-right" data-aos-duration="2000">
 <h1 className="greet">Hello Mam,
 <span style={cssstyle}>{greeting}</span>
 </h1>
@@ -88,7 +113,7 @@ return(<>
       </ol>
   </div>
 </div>
-
+</div>
 </>);
 };
 export default App;
