@@ -2,19 +2,21 @@ import React from 'react';
 
 const basic={
     display: 'flex',
-   justifyContent:'center',
+   justifyContent:'left',
    padding:'5px',
    flexDirection:'row',
    fontSize:'25px',
-   top:'13px'
+   marginTop:'30px'
 };
 const List = (props)=>
 {
     
  return (<>
  <div className="todo_style">
-<li style={basic}>{props.text}
- <i class="bi bi-trash-fill" style={{fontSize: '2rem', marginLeft: '15px' }}  onClick={() =>{props.onSelect(props.id);}}></i>
+ <li style={basic}>
+ <i class="bi bi-trash-fill" style={{fontSize: '2rem', marginLeft: '25px',paddingRight:'14px' }}  onClick={() =>{props.onSelect(props.id);}}></i>
+{props.text}
+ 
  </li>
 
  </div>

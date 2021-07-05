@@ -49,26 +49,26 @@ const App = () => {
 
 
   };
-  let currTime = new Date();
-  currTime = currTime.getHours();
-  let greeting = " ";
-  const cssstyle = {};
-  if (currTime < 12) {
-    greeting = "good morning";
-    cssstyle.color = 'red';
-  }
-  else if (currTime >= 12 && currTime <= 16) {
-    greeting = "good afternoon";
-    cssstyle.color = 'yellow';
-  }
-  else if (currTime >= 17 && currTime < 20) {
-    greeting = "good evening";
-    cssstyle.color = 'blue';
-  }
-  else {
-    greeting = "good night";
-    cssstyle.color = 'black';
-  }
+  // let currTime = new Date();
+  // currTime = currTime.getHours();
+  // let greeting = " ";
+  // const cssstyle = {};
+  // if (currTime < 12) {
+  //   greeting = "good morning";
+  //   cssstyle.color = 'red';
+  // }
+  // else if (currTime >= 12 && currTime <= 16) {
+  //   greeting = "good afternoon";
+  //   cssstyle.color = 'yellow';
+  // }
+  // else if (currTime >= 17 && currTime < 20) {
+  //   greeting = "good evening";
+  //   cssstyle.color = 'blue';
+  // }
+  // else {
+  //   greeting = "good night";
+  //   cssstyle.color = 'black';
+  // }
   return (<>
     <div className="wrapper">
       <div className="overlay first"></div>
