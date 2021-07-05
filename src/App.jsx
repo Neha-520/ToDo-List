@@ -11,19 +11,19 @@ const App = () => {
   const [inputList, setInputList] = useState("");
   const [Items, setItems] = useState([]);
   useEffect(() => {
-    gsap.to(".first", 2.0, { // selector text, Array, or object
+    gsap.to(".first", 1.0, { // selector text, Array, or object
       top: "-100%",
       delay: 0.5,
       ease: "Expo.easeinOut",
     });
 
-    gsap.to(".second", 2.5, { // selector text, Array, or object
+    gsap.to(".second", 1.5, { // selector text, Array, or object
       top: "-100%",
       delay: 0.7,
       ease: "Expo.easeinOut",
     });
 
-    gsap.to(".third", 3.0, { // selector text, Array, or object
+    gsap.to(".third", 2.0, { // selector text, Array, or object
       top: "-100%",
       delay: 0.9,
       ease: "Expo.easeinOut",
@@ -82,7 +82,7 @@ const App = () => {
 </h1>
 </div>  */}
 
-      <div className="main_div" data-aos="fade-right" data-aos-duration="3000" >
+      <div className="main_div" data-aos="fade-right" data-aos-duration="3500" >
         <div className="center_div">
           <br />
           <h1  > ToDo List</h1>
@@ -90,7 +90,7 @@ const App = () => {
 
           <input type="text" placeholder="Add todos"
             value={inputList} onChange={itemEvent} />
-          <i class="fa-lg bi bi-plus-square-fill" style={{ color:'blueviolet',fontSize: '2rem', marginLeft: '15px' }} onClick={todoList}> </i>
+          <i class="fa-lg bi bi-plus-square-fill" style={{fontSize: '2rem', marginLeft: '15px' }} onClick={todoList}> </i>
 
 
           <ol>
@@ -107,11 +107,7 @@ const App = () => {
           </ol>
         </div>
       </div>
-      <div className="x" data-aos="fade-right" data-aos-duration="2000">
-<h1 className="greet">Hello Mam,
-<span style={cssstyle}>{greeting}</span>
-</h1>
-</div>
+   
     </div>
   </>);
 };
