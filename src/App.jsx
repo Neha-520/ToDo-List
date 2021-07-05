@@ -75,14 +75,14 @@ const App = () => {
       <div className="overlay second"></div>
       <div className="overlay third"></div>
 
-      {/* 
+{/* 
 <div className="x" data-aos="fade-right" data-aos-duration="2000">
 <h1 className="greet">Hello Mam,
 <span style={cssstyle}>{greeting}</span>
 </h1>
-</div> */}
+</div>  */}
 
-      <div className="main " data-aos="fade-right" data-aos-duration="3000" >
+      <div className="main_div" data-aos="fade-right" data-aos-duration="3000" >
         <div className="center_div">
           <br />
           <h1  > ToDo List</h1>
@@ -90,7 +90,7 @@ const App = () => {
 
           <input type="text" placeholder="Add todos"
             value={inputList} onChange={itemEvent} />
-          <i class="bi bi-plus-square-fill" style={{  marginLeft: '10px',height:'60px',width:'40px' }} onClick={todoList}> </i>
+          <i class="fa-lg bi bi-plus-square-fill" style={{ color:'blueviolet',fontSize: '2rem', marginLeft: '15px' }} onClick={todoList}> </i>
 
 
           <ol>
@@ -107,12 +107,12 @@ const App = () => {
           </ol>
         </div>
       </div>
-    </div>
-    <div className="x" data-aos="fade-right" data-aos-duration="2000">
+      <div className="x" data-aos="fade-right" data-aos-duration="2000">
 <h1 className="greet">Hello Mam,
 <span style={cssstyle}>{greeting}</span>
 </h1>
 </div>
+    </div>
   </>);
 };
 export default App;
