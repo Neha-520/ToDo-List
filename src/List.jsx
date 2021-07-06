@@ -6,7 +6,7 @@ const basic={
    padding:'5px',
    flexDirection:'row',
    fontSize:'25px',
-   marginTop:'30px'
+   top:'30px'
 };
 const List = (props)=>
 {

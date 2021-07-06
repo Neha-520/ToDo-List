@@ -33,22 +33,25 @@ const App = () => {
     setInputList(event.target.value);
   };
 
-  function todoList() {
-    setItems((oldItems) => {
-      return [...oldItems, inputList];
-    });
-    setInputList("");
+  const todoList=()=> {
+    if(!inputList){
+
+    }else{
+      setItems([...Items, inputList]);
+      setInputList("");
+    }
 
   }
   const deleteItems = (id) => {
-    setItems((oldItems) => {
-      return oldItems.filter((arrElem, index) => {
-        return index !== id;
-      });
-    })
+    const updatedItem=Items.filter((elem,index)=> {
+     return index!== id;
+    });
+    setItems(updatedItem);
+  }
 
-
-  };
+  const removeAll=()=>{
+    setItems([]);
+  }
   // let currTime = new Date();
   // currTime = currTime.getHours();
   // let greeting = " ";
@@ -105,6 +108,7 @@ const App = () => {
             })
             }
           </ol>
+          <button onClick={removeAll}><span> CHECK LIST </span></button>
         </div>
       </div>
    
