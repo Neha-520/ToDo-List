@@ -37,7 +37,7 @@ const App = () => {
     if(!inputList){
 
     }else{
-      setItems([...Items, inputList]);
+      setItems([inputList,...Items]);
       setInputList("");
     }
 
