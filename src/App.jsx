@@ -35,7 +35,7 @@ const App = () => {
 
   const todoList=()=> {
     if(!inputList){
-
+ return;
     }else{
       setItems([inputList,...Items]);
       setInputList("");
