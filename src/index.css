@@ -38,6 +38,7 @@ input{
 }
 .center_div{
   width:50%;
+  min-width: 50%;
 height: 85vh;
 background-color: #fff;
 box-shadow: 5px 5px 25px -5px rgb(164, 165, 167);
