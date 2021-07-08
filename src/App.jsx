@@ -129,8 +129,8 @@ const App = () => {
           <input type="text" placeholder="Add todos"
             value={inputList} onChange={itemEvent} />
           {
-            toggle ? <i class="fa-lg bi bi-plus-square-fill" style={{ fontSize: '2rem', marginLeft: '15px' }} onClick={todoList}> </i> :
-              <i className="bi bi-pencil-square" style={{ fontSize: '2rem', marginLeft: '25px' }} onClick={todoList}></i>
+            toggle ? <i className="fa-lg bi bi-plus-square-fill" style={{ fontSize: '2rem', marginLeft: '15px',cursor:'pointer' }} onClick={todoList}> </i> :
+              <i className="bi bi-pencil-square" style={{ fontSize: '2rem', marginLeft: '25px',cursor:'pointer' }} onClick={todoList}></i>
           }
 
 
