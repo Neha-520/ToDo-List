@@ -5,7 +5,7 @@ const List = (props)=>
 {
     
  return (<>
- <div className="showItems" >
+ <div >
  <li className ="eachItem" >
  <h3>{props.text}</h3>
  <div className="todo-btn center_div">
