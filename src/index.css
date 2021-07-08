@@ -37,8 +37,8 @@ input{
   outline: none;
 }
 .center_div{
-  width:50%;
-  min-width: 50%;
+  width:45%;
+  min-width: 55%;
 height: 85vh;
 background-color: #fff;
 box-shadow: 5px 5px 25px -5px rgb(164, 165, 167);
@@ -55,8 +55,7 @@ border-radius: 15px;
   margin-bottom: 0.7rem;
   margin-left: 1rem;
   margin-right: 1rem;
- 
-  word-break: break-word;
+ min-width: 30%;
   display: flex;
   justify-content: space-between;
   align-items: center;
