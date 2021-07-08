@@ -122,7 +122,7 @@ const App = () => {
 </h1>
 </div>  */}
 
-      <div className="main_div" data-aos="fade-right" data-aos-duration="3500" >
+      <div className="main_div" data-aos="zoom-in-down" data-aos-duration="6000" >
         <div className="center_div">
           <br />
           <h1  > ToDo List</h1>
