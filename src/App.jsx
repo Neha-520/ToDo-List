@@ -7,9 +7,21 @@ import { gsap } from 'gsap';
 AOS.init();
 
 const App = () => {
+  const getLocalItems = () => {
+    let list = localStorage.getItem('lists');
+    if (list) {
+      return JSON.parse(localStorage.getItem('lists'));
+    }
+    else {
+      return [];
+    }
+  }
 
   const [inputList, setInputList] = useState("");
-  const [Items, setItems] = useState([]);
+  const [Items, setItems] = useState(getLocalItems());
+  const [toggle, setToggle] = useState(true);
+  const [isEditItem, setIsEditItem] = useState(null);
+
   useEffect(() => {
     gsap.to(".first", 1.0, { // selector text, Array, or object
       top: "-100%",
@@ -33,23 +45,46 @@ const App = () => {
     setInputList(event.target.value);
   };
 
-  const todoList=()=> {
-    if(!inputList){
- return;
-    }else{
-      setItems([inputList,...Items]);
+  const todoList = () => {
+    if (!inputList) {
+      return;
+    } else if (inputList && !toggle) {
+      setItems(
+        Items.map((elem) => {
+          if (elem.id === isEditItem) {
+            return { ...elem, name: inputList }
+          }
+          return elem;
+        })
+      )
+      setToggle(true);
+      setInputList(' ');
+      setIsEditItem(null);
+    }
+    else {
+      const allInputList = { id: new Date().getTime().toString(), name: inputList }
+      setItems([allInputList, ...Items]);
       setInputList("");
     }
 
   }
-  const deleteItems = (id) => {
-    const updatedItem=Items.filter((elem,index)=> {
-     return index!== id;
+  const deleteItems = (index) => {
+    const updatedItem = Items.filter((elem) => {
+      return index !== elem.id;
     });
     setItems(updatedItem);
   }
+  const editItem = (id) => {
+    let newEditItem = Items.find((elem) => {
+      return elem.id === id;
+    });
+    setToggle(false);
+    setInputList(newEditItem.name);
+    setIsEditItem(id);
 
-  const removeAll=()=>{
+  }
+
+  const removeAll = () => {
     setItems([]);
   }
   // let currTime = new Date();
@@ -78,7 +113,7 @@ const App = () => {
       <div className="overlay second"></div>
       <div className="overlay third"></div>
 
-{/* 
+      {/* 
 <div className="x" data-aos="fade-right" data-aos-duration="2000">
 <h1 className="greet">Hello Mam,
 <span style={cssstyle}>{greeting}</span>
@@ -93,17 +128,22 @@ const App = () => {
 
           <input type="text" placeholder="Add todos"
             value={inputList} onChange={itemEvent} />
-          <i class="fa-lg bi bi-plus-square-fill" style={{fontSize: '2rem', marginLeft: '15px' }} onClick={todoList}> </i>
+          {
+            toggle ? <i class="fa-lg bi bi-plus-square-fill" style={{ fontSize: '2rem', marginLeft: '15px' }} onClick={todoList}> </i> :
+              <i className="bi bi-pencil-square" style={{ fontSize: '2rem', marginLeft: '25px' }} onClick={todoList}></i>
+          }
+
 
 
           <ol>
 
-            {Items.map((todos, index) => {
+            {Items.map((todos) => {
               return <List
-                key={index}
-                text={todos}
-                id={index}
+                key={todos.id}
+                text={todos.name}
+                id={todos.id}
                 onSelect={deleteItems}
+                editItems={editItem}
               />
             })
             }
@@ -111,7 +151,7 @@ const App = () => {
           <button onClick={removeAll}><span> CHECK LIST </span></button>
         </div>
       </div>
-   
+
     </div>
   </>);
 };
