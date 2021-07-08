@@ -23,6 +23,7 @@ const App = () => {
   const [isEditItem, setIsEditItem] = useState(null);
 
   useEffect(() => {
+    localStorage.setItem('lists',JSON.stringify(Items))
     gsap.to(".first", 1.0, { // selector text, Array, or object
       top: "-100%",
       delay: 0.5,
@@ -40,13 +41,13 @@ const App = () => {
       delay: 0.9,
       ease: "Expo.easeinOut",
     });
-  }, [])
+  }, [Items])
   const itemEvent = (event) => {
     setInputList(event.target.value);
   };
 
   const todoList = () => {
-    if (!inputList) {
+    if (!inputList || /^\s*$/.test(inputList)) {
       return;
     } else if (inputList && !toggle) {
       setItems(
@@ -75,6 +76,7 @@ const App = () => {
     setItems(updatedItem);
   }
   const editItem = (id) => {
+
     let newEditItem = Items.find((elem) => {
       return elem.id === id;
     });
@@ -148,7 +150,7 @@ const App = () => {
             })
             }
           </ol>
-          <button onClick={removeAll}><span> CHECK LIST </span></button>
+          <button className="btn effect04" onClick={removeAll} data-sm-link-text="Remove All"><span> CHECK LIST </span></button>
         </div>
       </div>
 
